@@ -31,13 +31,6 @@ function playRound(player1Selection, player2Selection){ //rock paper scissor rou
     else if(((player1Selection == 0) ? 2 : player1Selection-1) == player2Selection) winState ++;
     else winState --;
 
-    /*if(winState == 0){
-        return "It's a Tie!";
-    } else if (winState == 1){
-        playerPoint ++;
-        return "You Win! " + pick[player1Selection] + " beats " + pick[player2Selection];
-    }*/
-
     switch(winState){
         case 0: return "It's a Tie!"; break; //tie text
         case 1: player1Points ++; return "You Win! " + pick[player1Selection] + " beats " + pick[player2Selection]; break; //player win text
@@ -46,8 +39,9 @@ function playRound(player1Selection, player2Selection){ //rock paper scissor rou
     }
 }
 
-scoreLabeUpdate(){
-    
+function scoreLabeUpdate(){
+    player1Score.textContent = player1Points;
+    player2Score.textContent = player2Points;
 }
 
 const pickButtons = document.querySelectorAll("#buttons button");
@@ -61,6 +55,8 @@ pickButtons.forEach(button => {
         if(player1Points == 5) resText.textContent = "Congratulations, you win the 5 round Tournament!";
         else if(player2Points == 5) resText.textContent = "Ahh, you lost the 5 round tournament, try again!";
         else resText.textContent = textMsg;
+
+        scoreLabeUpdate();
     })
 
 });
