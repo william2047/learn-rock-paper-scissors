@@ -1,6 +1,6 @@
 let pick = ["Rock", "Paper", "Scissor"]; //array to map value 0,1,2 to rock, paper, scissor
 
-function stringPickTranslator(inp){ //converts number 0,1,2 to rock,paper,scissor
+function stringPickTranslator(inp){ //converts rock, paper, scissor to  number 0,1,2
     inp = inp.toUpperCase();
 
     switch(inp){
